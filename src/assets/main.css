@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+/* Add this to your CSS file or <style> block */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, Opera */
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* for IE and Edge */
+  scrollbar-width: none;
+}
