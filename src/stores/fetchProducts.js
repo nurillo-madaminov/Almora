@@ -10,9 +10,9 @@ export const useProductsStore = defineStore('products', {
   },
   actions: {
     async getProducts() {
-      const data = await fetch('http://localhost:3000/products')
+      const data = await fetch('https://raw.githubusercontent.com/nurillo-madaminov/Almora/main/src/stores/data.json')
       const res = await data.json()
-      this.products = res
+      this.products = res.products
     },
   },
   getters: {
