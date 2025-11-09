@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "UrbanFlex Oversized Hoodie",
+      "description": "Cozy cotton-blend hoodie with dropped shoulders and minimalist logo embroidery. Available in charcoal gray, sand beige, and moss green.",
+      "category": "Tops",
+      "price": 49.99,
+      "color_options": ["Charcoal Gray", "Sand Beige", "Moss Green"],
+      "material": "Cotton Blend"
+    },
+    {
+      "id": 2,
+      "name": "AeroFit Seamless Leggings",
+      "description": "High-waisted, body-sculpting leggings designed for comfort and movement. Sweat-wicking fabric ideal for workouts or daily wear.",
+      "category": "Bottoms",
+      "price": 39.99,
+      "color_options": ["Black", "Sky Blue", "Lavender"],
+      "material": "Nylon Spandex"
+    },
+    {
+      "id": 3,
+      "name": "Luna Linen Button-Up Shirt",
+      "description": "Lightweight, breathable linen shirt featuring a relaxed fit and natural coconut shell buttons. Perfect for summer days.",
+      "category": "Tops",
+      "price": 44.5,
+      "color_options": ["White", "Olive", "Light Blue"],
+      "material": "100% Linen"
+    },
+    {
+      "id": 4,
+      "name": "Nordic Knit Crewneck Sweater",
+      "description": "Chunky knit sweater with Scandinavian-inspired patterns. Made from ultra-soft recycled yarns for warmth and style.",
+      "category": "Tops",
+      "price": 59.0,
+      "color_options": ["Cream", "Navy", "Rust"],
+      "material": "Recycled Yarn Blend"
+    },
+    {
+      "id": 5,
+      "name": "EcoDenim Straight Jeans",
+      "description": "Classic mid-rise straight jeans crafted from organic cotton denim. Minimal wash for a clean, modern look.",
+      "category": "Bottoms",
+      "price": 64.99,
+      "color_options": ["Light Blue", "Indigo", "Black"],
+      "material": "Organic Cotton Denim"
+    },
+    {
+      "id": 6,
+      "name": "Velora Satin Midi Skirt",
+      "description": "Elegant satin midi skirt with side slit and soft drape. Dress it up for evening events or pair with a tee for a casual look.",
+      "category": "Bottoms",
+      "price": 55.0,
+      "color_options": ["Emerald Green", "Champagne", "Black"],
+      "material": "Polyester Satin"
+    },
+    {
+      "id": 7,
+      "name": "TrailTech Windbreaker Jacket",
+      "description": "Lightweight, water-resistant jacket with reflective detailing and adjustable hem. Ideal for outdoor adventures.",
+      "category": "Outerwear",
+      "price": 69.95,
+      "color_options": ["Graphite", "Navy", "Neon Yellow"],
+      "material": "Polyester"
+    },
+    {
+      "id": 8,
+      "name": "SoftStep Lounge Joggers",
+      "description": "Ultra-soft fleece joggers with elastic waistband and cuffed ankles. Designed for all-day comfort.",
+      "category": "Bottoms",
+      "price": 42.99,
+      "color_options": ["Heather Gray", "Charcoal", "Navy"],
+      "material": "Fleece Cotton Blend"
+    },
+    {
+      "id": 9,
+      "name": "RetroWave Graphic Tee",
+      "description": "Vintage-inspired unisex t-shirt featuring bold retro prints. 100% combed cotton for a soft touch.",
+      "category": "Tops",
+      "price": 27.5,
+      "color_options": ["White", "Black", "Mint Green"],
+      "material": "Combed Cotton"
+    },
+    {
+      "id": 10,
+      "name": "Nomad Wool Overcoat",
+      "description": "Tailored long overcoat made from premium wool blend. Double-breasted closure and deep pockets for timeless elegance.",
+      "category": "Outerwear",
+      "price": 129.99,
+      "color_options": ["Camel", "Charcoal", "Navy"],
+      "material": "Wool Blend"
+    },
+    {
+      "id": 11,
+      "name": "Summit Trail Puffer Vest",
+      "description": "Lightweight insulated vest with zip pockets and packable design. Keeps you warm without bulk.",
+      "category": "Outerwear",
+      "price": 79.5,
+      "color_options": ["Olive", "Black", "Slate Blue"],
+      "material": "Recycled Nylon"
+    },
+    {
+      "id": 12,
+      "name": "TerraCore Cargo Pants",
+      "description": "Utility-inspired cargo pants with tapered fit and multiple functional pockets. Durable yet comfortable.",
+      "category": "Bottoms",
+      "price": 59.99,
+      "color_options": ["Khaki", "Olive", "Black"],
+      "material": "Cotton Twill"
+    },
+    {
+      "id": 13,
+      "name": "CloudKnit Zip-Up Hoodie",
+      "description": "Midweight hoodie made with cloud-soft knit fabric. Zippered front and spacious kangaroo pockets.",
+      "category": "Tops",
+      "price": 54.99,
+      "color_options": ["Stone Gray", "Forest Green", "Midnight Blue"],
+      "material": "Cotton Modal Blend"
+    },
+    {
+      "id": 14,
+      "name": "EcoStride Canvas Sneakers",
+      "description": "Low-top sneakers made from recycled canvas with a natural rubber sole. Minimalist design for everyday wear.",
+      "category": "Footwear",
+      "price": 74.0,
+      "color_options": ["White", "Black", "Olive"],
+      "material": "Recycled Canvas"
+    },
+    {
+      "id": 15,
+      "name": "Summerset Denim Jacket",
+      "description": "Classic denim jacket with subtle distressing and contrast stitching. Timeless layering piece.",
+      "category": "Outerwear",
+      "price": 89.0,
+      "color_options": ["Light Wash", "Dark Wash", "Black"],
+      "material": "Organic Cotton Denim"
+    },
+    {
+      "id": 16,
+      "name": "ArcticTherm Parka Coat",
+      "description": "Heavyweight insulated parka with faux-fur hood trim and weatherproof shell for cold climates.",
+      "category": "Outerwear",
+      "price": 149.99,
+      "color_options": ["Navy", "Forest Green", "Black"],
+      "material": "Recycled Polyester Shell"
+    },
+    {
+      "id": 17,
+      "name": "MetroBelt Leather Bag",
+      "description": "Sleek crossbody bag with adjustable strap, inner compartments, and metal hardware details.",
+      "category": "Accessories",
+      "price": 68.5,
+      "color_options": ["Black", "Tan", "Olive"],
+      "material": "Vegan Leather"
+    },
+    {
+      "id": 18,
+      "name": "PeakTrail Hiking Boots",
+      "description": "Waterproof hiking boots with rugged grip and cushioned midsole for all-day trail comfort.",
+      "category": "Footwear",
+      "price": 119.99,
+      "color_options": ["Brown", "Gray", "Black"],
+      "material": "Leather and Mesh"
+    },
+    {
+      "id": 19,
+      "name": "ZenLite Yoga Shorts",
+      "description": "Flexible and breathable yoga shorts with high waistband and hidden pocket.",
+      "category": "Bottoms",
+      "price": 34.99,
+      "color_options": ["Black", "Rose", "Teal"],
+      "material": "Nylon Spandex Blend"
+    },
+    {
+      "id": 20,
+      "name": "BreezeCotton Polo Shirt",
+      "description": "Classic short-sleeve polo with breathable pique texture and subtle logo embroidery.",
+      "category": "Tops",
+      "price": 38.5,
+      "color_options": ["White", "Navy", "Sage Green"],
+      "material": "Organic Cotton"
+    }
+  ]
+}
