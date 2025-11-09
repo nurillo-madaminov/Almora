@@ -10,7 +10,7 @@ const props = defineProps(['name', 'price'])
 
 <template>
   <div class="card-sm bg-base-100 col-span-1 shadow-sm">
-    <div class="card-header h-[250px]">
+    <div class="card-header h-[250px] overflow-hidden">
       <figure>
         <swiper :pagination="true" :modules="[Pagination]" class="overflow-hidden">
           <swiper-slide>
