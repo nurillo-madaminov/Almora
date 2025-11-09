@@ -23,11 +23,13 @@ const props = defineProps(['name', 'price'])
       </figure>
     </div>
 
-    <div class="card-body">
-      <h4 class="card-title text-md">{{props.name}}</h4>
-      <p>{{props.price}}$</p>
-      <div class="card-actions justify-end">
-        <div class="badge badge-outline">Fashion</div>
+    <div class="card-body flex flex-col justify-between">
+      <h4 class="card-title text-sm items-start h-8">{{ props.name }}</h4>
+      <div class="flex justify-between items-center mt-2">
+        <p>{{ props.price }}$</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-success h-[30px]">More</button>
+        </div>
       </div>
     </div>
   </div>
