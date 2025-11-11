@@ -7,6 +7,10 @@ const store = useProductsStore()
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
 
+import { useSwiperPaginationWrapper } from '@/composables/globalFunctions'
+const wrapPagination = useSwiperPaginationWrapper()
+
+
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -37,6 +41,7 @@ onMounted(() => {
 </script>
 <template>
   <swiper
+    @swiper="wrapPagination"
     :slides-per-view="1.1"
     :space-between="10"
     :centered-slides="true"
