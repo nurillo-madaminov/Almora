@@ -1,9 +1,9 @@
 <script setup>
-// oxlint-disable no-unused-expressions
 import { onMounted, watch } from 'vue'
 import { useProductsStore } from '@/stores/fetchProducts'
 const store = useProductsStore()
 
+import ModalLayer from '@/components/ModalLayer.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
 
@@ -16,15 +16,6 @@ import 'swiper/css/pagination'
 
 import ProductsSection from '@/components/ProductsSection.vue'
 
-// const onSwiper = (swiper) => {
-//   console.log(swiper)
-// }
-
-// const onSlideChange = () => {
-//   console.log('slide change')
-// }
-// @swiper="onSwiper"
-// @slideChange="onSlideChange"
 
 watch(
   () => store.products,
@@ -80,4 +71,5 @@ onMounted(() => {
       :products="groupedProducts.products"
     />
   </div>
+  <ModalLayer/>
 </template>

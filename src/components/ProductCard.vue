@@ -1,12 +1,12 @@
 <script setup>
+import { toggleModal, useSwiperPaginationWrapper } from '@/composables/globalFunctions'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
-import { useSwiperPaginationWrapper } from '@/composables/globalFunctions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-const props = defineProps(['name', 'price'])
+const props = defineProps(['name', 'price', 'id'])
 
 const wrapPagination = useSwiperPaginationWrapper()
 </script>
@@ -36,7 +36,7 @@ const wrapPagination = useSwiperPaginationWrapper()
       <div class="flex justify-between items-center mt-2">
         <p>{{ props.price }}$</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-success h-[30px]">More</button>
+          <button class="btn btn-success h-[30px]" @click="() => toggleModal(props.id)">More</button>
         </div>
       </div>
     </div>
