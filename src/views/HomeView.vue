@@ -1,22 +1,23 @@
 <script setup>
 import { onMounted, watch } from 'vue'
-import { useProductsStore } from '@/stores/fetchProducts'
-const store = useProductsStore()
 
-import ModalLayer from '@/components/ModalLayer.vue'
+//ui components
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
-
-import { useSwiperPaginationWrapper } from '@/composables/globalFunctions'
-const wrapPagination = useSwiperPaginationWrapper()
-
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+//external actions
+import { useSwiperPaginationWrapper } from '@/composables/globalFunctions'
+import { useProductsStore } from '@/stores/fetchProducts' //needed get grouped products and sending it to ProductsSection as a prop
+const wrapPagination = useSwiperPaginationWrapper()
+const store = useProductsStore()
+
+//components
+import ModalLayer from '@/components/ModalLayer.vue'
 import ProductsSection from '@/components/ProductsSection.vue'
 
-
+// shows grouped products by groups in console
 watch(
   () => store.products,
   () => {
@@ -71,5 +72,5 @@ onMounted(() => {
       :products="groupedProducts.products"
     />
   </div>
-  <ModalLayer/>
+  <ModalLayer />
 </template>

@@ -1,5 +1,8 @@
+//composables are global functions newthing for me
+
 import { ref, watch } from 'vue'
 
+//wraps the swiper-pagination with div.wrapper in order to customize it's style
 export function useSwiperPaginationWrapper() {
   return function wrapPagination(swiper) {
     const paginationEl = swiper.pagination.el
@@ -13,22 +16,20 @@ export function useSwiperPaginationWrapper() {
   }
 }
 
-//----------
-
+//product details page (ModalLayer.vue visibility and displaying information from clicked product)
 export const isVisible = ref(false)
 export const productId = ref()
 
-export function toggleModal(x) {
+export function toggleModal(id) {
   isVisible.value = !isVisible.value
-  productId.value = x
+  productId.value = id
 }
 
-  watch(isVisible, (val) => {
-    if (val) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  });
-
-//composables are global functions
+//stops <body> scrolling when ModalLayer is visible --better ex--
+watch(isVisible, (val) => {
+  if (val) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})

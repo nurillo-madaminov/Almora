@@ -1,14 +1,15 @@
 <script setup>
-import { toggleModal, useSwiperPaginationWrapper } from '@/composables/globalFunctions'
+//ui components
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper/modules'
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-const props = defineProps(['name', 'price', 'id'])
-
+//external actions
+import { toggleModal, useSwiperPaginationWrapper } from '@/composables/globalFunctions'
 const wrapPagination = useSwiperPaginationWrapper()
+
+const props = defineProps(['name', 'price', 'id'])
 </script>
 
 <template>

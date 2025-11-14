@@ -1,11 +1,17 @@
 <script setup>
-import { watch } from 'vue'
+import { watch, ref } from 'vue'
+
+// external actions
 import { isVisible, productId, toggleModal } from '@/composables/globalFunctions'
-import { useProductsStore } from '@/stores/fetchProducts'
+import { useProductsStore } from '@/stores/fetchProducts' //store needed to get the info of single product which is clicked
 const store = useProductsStore()
 
-watch(isVisible == true, () => {
-  console.log(store.getProductById(productId))
+const product = ref([])
+
+// when isVisible is true,'product' is declared based on the productId
+watch(isVisible, () => {
+  if (isVisible.value == true) product.value = store.getProductById(productId.value)
+  else return
 })
 </script>
 <template>
@@ -34,7 +40,7 @@ watch(isVisible == true, () => {
         </div>
       </div>
       <div class="px-2">
-        <h1>{{ productId }}</h1>
+        <h1>{{ product.name }}</h1>
       </div>
     </div>
   </Teleport>
