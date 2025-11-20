@@ -11,12 +11,12 @@ export const useProductsStore = defineStore('products', {
     // work on response handler
     async getProducts() {
       const data = await fetch(
-        // 'https://raw.githubusercontent.com/nurillo-madaminov/Almora/main/src/stores/data.json',
-        'http://localhost:3000/products', //tempcode
+        'https://raw.githubusercontent.com/nurillo-madaminov/Almora/main/src/stores/data.json'
+        // 'http://localhost:3000/products', //tempcode
       )
       const res = await data.json()
-      // this.products = res.products
-      this.products = res // tempcode
+      this.products = res.products
+      // this.products = res // tempcode
     },
   },
 

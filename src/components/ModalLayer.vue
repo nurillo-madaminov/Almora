@@ -15,7 +15,7 @@ watch(isVisible, () => {
 })
 </script>
 <template>
-  >
+
   <Teleport to="body" v-if="isVisible">
     <div class="fixed top-0 z-99999 w-full h-full bg-[#fdeeee] overflow-auto">
       <div class="flex justify-end p-4">
