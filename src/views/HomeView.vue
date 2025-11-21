@@ -44,25 +44,33 @@ onMounted(() => {
   >
     <swiper-slide>
       <div class="w-full h-[200px] border rounded overflow-hidden">
-        <img src="https://picsum.photos/400" alt="" />
+        <img class="object-cover w-full h-full" src="https://picsum.photos/800/400" alt="" />
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="w-full h-[200px] border rounded overflow-hidden">
-        <img src="https://picsum.photos/401" alt="" />
+        <img class="object-cover w-full h-full" src="https://picsum.photos/801/400" alt="" />
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="w-full h-[200px] border rounded overflow-hidden">
-        <img src="https://picsum.photos/402" alt="" />
+        <img class="object-cover w-full h-full" src="https://picsum.photos/802/400" alt="" />
       </div>
     </swiper-slide>
   </swiper>
-
+  
   <div class="flex overflow-auto space-x-2 px-2 hide-scrollbar mb-3">
-    <div class="w-[180px] h-[110px] shrink-0 rounded border">slider 1</div>
-    <div class="w-[180px] h-[110px] shrink-0 rounded border">slider 2</div>
-    <div class="w-[180px] h-[11 0px] shrink-0 rounded border">slider 3</div>
+    <div class="w-[180px] h-[110px] shrink-0 rounded ">
+      <img class="object-cover w-full h-full" src="https://picsum.photos/600/400" alt="" />
+    </div>
+    <div class="w-[180px] h-[110px] shrink-0 rounded ">
+      <img class="object-cover w-full h-full" src="https://picsum.photos/601/400" alt="" />
+      
+    </div>
+    <div class="w-[180px] h-[110px] shrink-0 rounded ">
+      <img class="object-cover w-full h-full" src="https://picsum.photos/602/400" alt="" />
+
+    </div>
   </div>
   <div>
     <products-section

@@ -7,9 +7,14 @@ window.onload = () => {
     showNav.value = true
   }
 }
+window.onscroll = () => {
+  if (innerWidth < 768) {
+    showNav.value = true
+  }
+}
 </script>
 <template>
-  <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 sticky top-0 z-50 shadow-lg">
+  <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-0 z-50 shadow-md">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-7xl p-4">
       <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -57,25 +62,19 @@ window.onload = () => {
               >Home</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a
               href="#"
               class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
               >Marketplace</a
             >
-          </li>
+          </li> -->
+          
           <li>
             <a
               href="#"
               class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-              >Resources</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-              >Contact</a
+              >Cart</a
             >
           </li>
         </ul>
