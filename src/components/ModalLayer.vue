@@ -1,5 +1,5 @@
 <script setup>
-import { watch, ref } from 'vue'
+import { watch, nextTick, ref } from 'vue'
 
 // external actions
 import { isVisible, productId, toggleModal } from '@/composables/globalFunctions'
@@ -7,18 +7,34 @@ import { useProductsStore } from '@/stores/fetchProducts' //store needed to get 
 const store = useProductsStore()
 
 const product = ref([])
+const modal = ref(null)
 
+function close() {
+  modal.value.style.transition = '300ms'
+  modal.value.style.right = '-100%'
+
+  setTimeout(() => {
+    toggleModal()
+  }, 100)
+}
 // when isVisible is true,'product' is declared based on the productId
-watch(isVisible, () => {
+watch(isVisible, async () => {
   if (isVisible.value == true) {
+    await nextTick()
+    setTimeout(() => {
+      modal.value.style.transition = '300ms'
+      modal.value.style.right = 0
+    }, 10)
     product.value = store.getProductById(productId.value)
-    console.log(product.value)
-  } else return
+  }
 })
 </script>
 <template>
   <Teleport to="body" v-if="isVisible">
-    <div class="fixed top-0 z-99999 w-full h-full bg-gray-100 overflow-auto">
+    <div
+      class="fixed top-0 -right-full z-99999 w-full h-full  dark:border-gray-600 bg-gray-100 overflow-auto"
+      ref="modal"
+    >
       <nav
         class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 sticky top-0 z-50 shadow-lg"
       >
@@ -29,7 +45,7 @@ watch(isVisible, () => {
             >
           </a>
           <button
-            @click="() => toggleModal()"
+            @click="close()"
             data-collapse-toggle="mega-menu-full"
             type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 dark:text-gray-400 dark:hover:bg-gray-700 0"
@@ -57,7 +73,7 @@ watch(isVisible, () => {
           </button>
         </div>
       </nav>
-      <div class="px-2">
+      <div class="px-2 bg-gray-200 dark:bg-gray-800">
         <div class="dark:bg-gray-800 py-8">
           <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row -mx-4">
@@ -88,60 +104,16 @@ watch(isVisible, () => {
               </div>
               <div class="md:flex-1 px-4">
                 <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                  {{ product.name }}
+                  {{ product?.name }}
                 </h2>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                  {{ product.description}}
-                </p>
-                <div class="flex mb-4">
+                <div class="flex mb-2">
                   <div class="mr-4">
                     <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                    <span class="text-gray-600 dark:text-gray-300">${{ product.price }}</span>
+                    <span class="text-gray-600 dark:text-gray-300">${{ product?.price }}</span>
                   </div>
                   <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
                     <span class="text-gray-600 dark:text-gray-300">In Stock</span>
-                  </div>
-                </div>
-                <!-- <div class="mb-4">
-                  <span class="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
-                  <div class="flex items-center mt-2">
-                    <button class="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                    <button class="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                    <button class="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                    <button
-                      class="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"
-                    ></button>
-                  </div>
-                </div> -->
-                <div class="mb-4">
-                  <span class="font-bold text-gray-700 dark:text-gray-300">Select Size:</span>
-                  <div class="flex items-center mt-2">
-                    <button
-                      class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600"
-                    >
-                      S
-                    </button>
-                    <button
-                      class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600"
-                    >
-                      M
-                    </button>
-                    <button
-                      class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600"
-                    >
-                      L
-                    </button>
-                    <button
-                      class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600"
-                    >
-                      XL
-                    </button>
-                    <button
-                      class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600"
-                    >
-                      XXL
-                    </button>
                   </div>
                 </div>
                 <div>
@@ -149,7 +121,16 @@ watch(isVisible, () => {
                     >Product Description:</span
                   >
                   <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet porro consequuntur tempore amet provident delectus consectetur cum, illum veniam. Rem ipsum eum beatae, repudiandae sequi quasi animi, fuga inventore est, ab eius cum repellat quibusdam maxime vero dolorem modi illo debitis itaque? Asperiores excepturi assumenda eos ex, saepe perspiciatis aut dolor? Voluptate architecto tenetur saepe est repellat illo beatae. Asperiores unde, earum illum corporis modi cumque! Ipsam rerum nemo repellendus nam, cupiditate vitae. Eligendi delectus mollitia quis nostrum dignissimos reiciendis accusamus adipisci facere quisquam explicabo fuga tempore, rerum repudiandae distinctio tenetur iusto vitae atque blanditiis nulla odio asperiores accusantium aliquam!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet porro
+                    consequuntur tempore amet provident delectus consectetur cum, illum veniam. Rem
+                    ipsum eum beatae, repudiandae sequi quasi animi, fuga inventore est, ab eius cum
+                    repellat quibusdam maxime vero dolorem modi illo debitis itaque? Asperiores
+                    excepturi assumenda eos ex, saepe perspiciatis aut dolor? Voluptate architecto
+                    tenetur saepe est repellat illo beatae. Asperiores unde, earum illum corporis
+                    modi cumque! Ipsam rerum nemo repellendus nam, cupiditate vitae. Eligendi
+                    delectus mollitia quis nostrum dignissimos reiciendis accusamus adipisci facere
+                    quisquam explicabo fuga tempore, rerum repudiandae distinctio tenetur iusto
+                    vitae atque blanditiis nulla odio asperiores accusantium aliquam!
                   </p>
                 </div>
               </div>
