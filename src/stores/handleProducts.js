@@ -10,13 +10,17 @@ export const useProductsStore = defineStore('products', {
   actions: {
     // work on response handler
     async getProducts() {
-      const data = await fetch(
-        'https://raw.githubusercontent.com/nurillo-madaminov/Almora/main/src/stores/data.json'
-        // 'http://localhost:3000/products', //tempcode
-      )
-      const res = await data.json()
-      this.products = res.products
-      // this.products = res // tempcode
+      try {
+        const data = await fetch(
+          'https://raw.githubusercontent.com/nurillo-madaminov/Almora/main/src/stores/data.json',
+          // 'http://localhost:3000/products', //tempcode
+        )
+        const res = await data.json()
+        this.products = res.products
+        // this.products = res // tempcode
+      } catch (e) {
+        console.log('message', e)
+      }
     },
   },
 

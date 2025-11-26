@@ -1,20 +1,19 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 const showNav = ref(false)
 
-window.onload = () => {
-  if (innerWidth < 768) {
+onBeforeMount(() => {
+  if (innerWidth >= 768) {
+    showNav.value = false
+  } else {
     showNav.value = true
   }
-}
-window.onscroll = () => {
-  if (innerWidth < 768) {
-    showNav.value = true
-  }
-}
+})
 </script>
 <template>
-  <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-0 z-50 shadow-md">
+  <nav
+    class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-0 z-50 shadow-md"
+  >
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-7xl p-4">
       <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -69,7 +68,7 @@ window.onscroll = () => {
               >Marketplace</a
             >
           </li> -->
-          
+
           <li>
             <a
               href="#"
