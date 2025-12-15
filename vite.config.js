@@ -18,7 +18,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Almora - online do\'kon',
+        name: "Almora - online do'kon",
         short_name: 'Almora',
         start_url: '/',
         display: 'standalone',

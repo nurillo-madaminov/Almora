@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
 /* Add this to your CSS file or <style> block */
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, Opera */
@@ -26,4 +29,23 @@
   padding: 0 10px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  width: 100%;
+  @media (width >= 40rem /* 640px */) {
+    max-width: 40rem /* 640px */;
+  }
+  @media (width >= 48rem /* 768px */) {
+    max-width: 48rem /* 768px */;
+  }
+  @media (width >= 64rem /* 1024px */) {
+    max-width: 64rem /* 1024px */;
+  }
+  @media (width >= 80rem /* 1280px */) {
+    max-width: 80rem /* 1280px */;
+  }
+  @media (width >= 83rem /* 1536px */) {
+    max-width: 83rem /* 1536px */;
+  }
 }
