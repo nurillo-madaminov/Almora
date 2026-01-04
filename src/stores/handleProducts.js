@@ -4,6 +4,7 @@ export const useProductsStore = defineStore('products', {
   state: () => {
     return {
       products: [],
+      cartItems: [{ id: 1, amount: 2 }],
     }
   },
 
@@ -45,5 +46,23 @@ export const useProductsStore = defineStore('products', {
         products,
       }))
     },
+
+    cart: (state) => {
+      const data = []
+      state.cartItems.forEach((i) => {
+        data.push(state.products.find((product) => product.id == i))
+      })
+      return data
+    },
+    readOnlyCart: (state) =>
+      state.cartItems.map((i) => {
+        const product = state.products.find((p) => p.id === i.id)
+        return {
+          name: product?.name,
+          unitPrice: product?.price,
+          amount: i?.amount,
+          subtotal: product?.price * i?.amount,
+        }
+      }),
   },
 })

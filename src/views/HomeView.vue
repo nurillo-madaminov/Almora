@@ -29,14 +29,14 @@ const alert = ref(null)
 const showAlert = ref(false)
 
 // shows grouped products by groups in console
-watch(
-  () => store.products,
-  () => {
-    store.groupItemsByCategory.forEach((i) => {
-      console.log(i)
-    })
-  },
-)
+// watch(
+//   () => store.products,
+//   () => {
+//     store.groupItemsByCategory.forEach((i) => {
+//       console.log(i)
+//     })
+//   },
+// )
 
 //opening product overview left to right animation
 watch(isVisible, async () => {
@@ -60,7 +60,21 @@ function close() {
   }, 100)
 }
 
-function addToCart() {
+function addToCart(productId) {
+  const item = store.cartItems.find((i) => i.id == productId)
+
+  if (item) {
+    item.amount++
+  } else {
+    const cartItem = {
+      id: productId,
+      amount: 1,
+    }
+    store.cartItems.push(cartItem)
+  }
+
+  console.log(store.cartItems)
+
   showAlert.value = true
   nextTick(() => {
     setTimeout(() => {
@@ -135,7 +149,6 @@ onMounted(() => {
       </div>
     </div>
   </div>
-
   <ModalLayer v-if="isVisible">
     <div
       class="fixed top-0 -right-full z-99999 w-full h-full dark:border-gray-600 bg-gray-100 overflow-auto"
@@ -152,18 +165,18 @@ onMounted(() => {
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            fill="none"
+            fill="transparent"
             viewBox="0 0 24 24"
           >
             <path
-              stroke="currentColor"
+              stroke="white"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             />
           </svg>
-          <p>
+          <p class="text-white">
             <span class="font-medium me-1">Dark alert!</span> Product successfully added to the
             cart!
           </p>
@@ -222,8 +235,8 @@ onMounted(() => {
                 <div class="flex -mx-2 mb-4">
                   <div class="w-1/2 px-2">
                     <button
-                      @click="addToCart"
-                      class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      @click="addToCart(product.id)"
+                      class="w-full bg-blue-500 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-blue-600 dark:hover:bg-gray-700"
                     >
                       Add to Cart
                     </button>

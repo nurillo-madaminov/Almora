@@ -4,6 +4,14 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
+* {
+  user-select: none;
+}
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
 /* Add this to your CSS file or <style> block */
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, Opera */

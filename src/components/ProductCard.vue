@@ -37,7 +37,7 @@ const props = defineProps(['name', 'price', 'id'])
       <div class="flex justify-between items-center mt-2">
         <p>{{ props.price }}$</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-success h-[30px]" @click="toggleModal(props.id)">
+          <button class="btn text-white bg-blue-400 dark:bg-blue-500  h-[30px]" @click="toggleModal(props.id)">
             More
           </button>
         </div>

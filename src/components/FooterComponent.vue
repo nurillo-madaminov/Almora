@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white rounded-lg shadow-sm dark:bg-gray-900 m-4">
+  <footer class="bg-white rounded-lg dark:bg-gray-900 m-4 shadow-[0_-20px_25px_-5px_rgba(0,0,0,0.1),0_-10px_10px_-5px_rgba(0,0,0,0.04)]">
     <div class="w-full max-w-7xl mx-auto p-4 md:py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
         <a
